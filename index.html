@@ -67,6 +67,9 @@ programming
             usedChars.push(ch);
             if (parts.length === 0) {
                 permArr.push(usedChars.slice());
+                if (permArr.length % 100 === 0) {
+                  self.postMessage({status:'running',message: permArr.length });
+                }
             }
             this.permutate(parts);
             parts.splice(i, 0, ch);
