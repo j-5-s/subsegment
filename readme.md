@@ -1,5 +1,5 @@
 # Amazon code challenge
 
 As a programmer you see a problem and just have to solve it. I ventured off to amazons code challenge
-and took a stab at solving on of their [problems](https://amazon.interviewstreet.com/challenges/dashboard/#problem/4fd648244715d)
-in JavaScript. I was a little offended they did not allow Javascript submissions though.
+and took a stab at solving one of their [problems](https://amazon.interviewstreet.com/challenges/dashboard/#problem/4fd648244715d)
+in JavaScript. Whats up with noJavascript submissions though?
