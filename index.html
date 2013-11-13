@@ -62,15 +62,17 @@ programming
             i,
             ch;
 
+        if (permArr.length % 100 === 0) {
+           self.postMessage({status:'running',message: permArr.length });
+        }
+
         for (i = 0; i < parts.length; i++) {
             ch = parts.splice(i, 1)[0];
             usedChars.push(ch);
             if (parts.length === 0) {
                 permArr.push(usedChars.slice());
-                if (permArr.length % 100 === 0) {
-                  self.postMessage({status:'running',message: permArr.length });
-                }
             }
+
             this.permutate(parts);
             parts.splice(i, 0, ch);
             usedChars.pop();
@@ -91,10 +93,14 @@ programming
         var permArray = this._permArr,
             matches = this._matches,
             input = this._input;
-
+        self.postMessage({status:'complete',message: 'Running regex...' });
         for (var i = 0; i < permArray.length; i++ ) {
             var regx = permArray[i],
                 re = new RegExp(regx, 'i');
+
+            if (i %1000 === 0) {
+             self.postMessage({status:'complete',message: 'Running regex... (permutation - '+i+')' });
+            }
             if (re.test(input)) {
                 matches.push(re.exec(input)[0]);
             }
@@ -102,6 +108,7 @@ programming
     };
 
     ShortestSubSegment.prototype.getShortest = function getShortest() {
+
 
         var matches = this._matches;
         if (!matches[0]) {
